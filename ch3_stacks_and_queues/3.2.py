@@ -22,8 +22,8 @@ class Stack():
 
     def push(self, element):
         node = Node(element)
-        self._array.append(Node(element))  # adds element to _array array
-        self.update_min_after_push(node)  # add element to _min array
+        self._array.append(node)
+        self.update_min_after_push(node)  # add element to _min array if min
 
     def min(self):
         if not self._min:
