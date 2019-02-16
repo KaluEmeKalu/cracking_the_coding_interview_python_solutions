@@ -12,9 +12,12 @@ class Queue():
 
 
     def dequeue(self):
-        while not self.stack.is_empty():
-            self.reverse_stack.push(self.stack.pop())
-        popped = self.reverse_stack.pop()
+        if not self.reverse_stack.is_empty():
+            popped = self.reverse_stack.pop()
+        else:
+            while not self.stack.is_empty():
+                self.reverse_stack.push(self.stack.pop())
+            popped = self.reverse_stack.pop()
         return popped
 
 
@@ -60,6 +63,17 @@ class TestStackQueue(unittest.TestCase):
 
     def testDequeue(self):
         self.assertEqual(7, self.q.dequeue())
+
+        self.q.enqueue(11)
+        self.q.enqueue(12)
+        self.q.enqueue(13)
+        self.q.enqueue(14)
+
+        self.assertEqual(8, self.q.dequeue())
+        self.assertEqual(9, self.q.dequeue())
+        self.assertEqual(10, self.q.dequeue())
+        self.assertEqual(11, self.q.dequeue())
+
 
 
 
