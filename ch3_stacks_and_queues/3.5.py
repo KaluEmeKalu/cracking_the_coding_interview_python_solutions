@@ -6,8 +6,6 @@ class Stack():
     def __init__(self):
         self._array = []
 
-
-
     def sort(self):
         hold = Stack()
 
@@ -17,12 +15,9 @@ class Stack():
                 self.push(hold.pop())
             hold.push(temp)
 
-
         while not hold.is_empty():
             self.push(hold.pop())
         print(self)
-
-
 
     def peek(self):
         return self._array[-1]
@@ -61,8 +56,6 @@ class TestStack(unittest.TestCase):
         self.stack.sort()
         while not self.stack.is_empty():
             self.assertGreaterEqual(tmp, self.stack.pop())
-
-
 
     def testIsEmpty(self):
         b = Stack()
