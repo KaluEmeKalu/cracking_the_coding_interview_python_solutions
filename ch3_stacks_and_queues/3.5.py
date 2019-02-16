@@ -57,7 +57,12 @@ class TestStack(unittest.TestCase):
         self.assertEqual(peek, 7)
 
     def testSort(self):
+        tmp = float('inf')
         self.stack.sort()
+        while not self.stack.is_empty():
+            self.assertGreaterEqual(tmp, self.stack.pop())
+
+
 
     def testIsEmpty(self):
         b = Stack()
