@@ -1,17 +1,16 @@
 # 3.3 - Stack of Plates
 import unittest
 
+
 class StackofStacks():
     def __init__(self, capacity=5):
         self._full_arrays = []
         self._current_array = []
         self._capacity = capacity
 
-
     def print_stack_details(self):
         print(f"Here is full stack {self._full_arrays}")
         print(f"Here is current stack: {self._current_array}")
-
 
     def push(self, element):
 
@@ -27,7 +26,6 @@ class StackofStacks():
         if not self._current_array:
             print("\n\n about to raise exception \n\n")
             raise Exception("Can't Pop. No items in Stack")
-        
 
         elif len(self._current_array) == 1:
             element = self._current_array.pop()
@@ -36,8 +34,6 @@ class StackofStacks():
                 self._current_array = self._full_arrays.pop()
             return element
         return self._current_array.pop()
-        
-
 
 
 class testStackofStacks(unittest.TestCase):
@@ -68,18 +64,6 @@ class testStackofStacks(unittest.TestCase):
 
             # Don't understand why exception isn't being raised
             # should be raised when x >=26
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
