@@ -1,5 +1,6 @@
 import unittest
 
+
 class Queue():
     def __init__(self):
         self.first = None
@@ -19,8 +20,7 @@ class Queue():
         self.last = node
 
     def is_empty(self):
-        return self.first == None
-
+        return self.first is None
 
     def dequeue(self):
         if self.is_empty():
@@ -28,7 +28,6 @@ class Queue():
         element = self.first
         self.first = self.first.next
         return element.data
-
 
     def print_q(self):
         hold = []
@@ -45,10 +44,11 @@ class Queue():
             yield current.data
             current = current.next
 
+
 class TestQueue(unittest.TestCase):
     def setUp(self):
         self.q = Queue()
-        for num in range(4,9):
+        for num in range(4, 9):
             self.q.enqueue(num)
 
         self.q.print_q()
@@ -72,7 +72,6 @@ class TestQueue(unittest.TestCase):
             queue.enqueue(num)
         list2 = list(queue.__iter__())
         self.assertEqual(list1, list2)
-
 
 
 if __name__ == "__main__":
